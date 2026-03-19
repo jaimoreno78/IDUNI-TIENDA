@@ -1,0 +1,8 @@
+const CACHE = 'iduni-v2';
+const FILES = ['./', './index.html','./style.css','./db.js','./utils.js','./components.js','./app.js',
+  './pages/setup.js','./pages/dashboard.js','./pages/venta.js','./pages/cuentas.js',
+  './pages/historial.js','./pages/productos.js','./pages/hermanos.js','./pages/reportes.js','./pages/config.js',
+  './manifest.json','./icon.svg'];
+self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
+self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).catch(()=>caches.match('./index.html')))));

@@ -1,0 +1,13 @@
+{
+  "name": "IDUNI — Sistema Integral",
+  "short_name": "IDUNI",
+  "description": "Sistema de Tienda, Olla Común y Fiestas — Iglesia de la Doctrina Universal de Israel",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0d2a5e",
+  "theme_color": "#0d2a5e",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
